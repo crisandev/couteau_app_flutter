@@ -37,8 +37,7 @@ class GenderRevealState extends State<GenderReveal> {
       }
     } catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          backgroundColor: Colors.red, 
-          content: Text('Error: $error')));
+          backgroundColor: Colors.red, content: Text('Error: $error')));
     }
   }
 
@@ -57,7 +56,7 @@ class GenderRevealState extends State<GenderReveal> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              "Gender Reveal",
+              "Revelar Género",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 30),
             ),
@@ -67,13 +66,13 @@ class GenderRevealState extends State<GenderReveal> {
                 setState(() {});
               },
               decoration: const InputDecoration(
-                  labelText: 'Enter your name',
+                  labelText: 'Ingresa tu nombre',
                   floatingLabelAlignment: FloatingLabelAlignment.center),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: genderReveal,
-              child: const Text("Reveal Gender"),
+              child: const Text("Revelar Género"),
             )
           ],
         ),

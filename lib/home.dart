@@ -1,6 +1,9 @@
 import 'package:couteau_app/pages/age_reveal.dart';
 import 'package:couteau_app/pages/gender_reveal.dart';
+import 'package:couteau_app/pages/hireme.dart';
+import 'package:couteau_app/pages/news.dart';
 import 'package:couteau_app/pages/universities.dart';
+import 'package:couteau_app/pages/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
@@ -17,26 +20,19 @@ class _HomePageState extends State<HomePage> {
     const GenderReveal(),
     const AgeReveal(),
     const Universities(),
-    const Text('asdf'),
-    const Text('asdf'),
-    const Text('asdf'),
-    // const Cover(),
-    // const Character(),
-    // const Moments(),
-    // const About(),
-    // const MyLife(),
-    // const HireMe()
+    const Weather(),
+    const News(),
+    const HireMe(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Inicio")),
-      // backgroundColor: Colors.transparent,
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.transparent,
-        buttonBackgroundColor: Color(int.parse('FFe51e22', radix: 16)),
-        color: Color(int.parse('FFe51e22', radix: 16)),
+        buttonBackgroundColor: Color(int.parse('2296f32296f3', radix: 16)),
+        color: Color(int.parse('2296f32296f3', radix: 16)),
         animationDuration: const Duration(milliseconds: 300),
         items: const <Widget>[
           Icon(
@@ -45,22 +41,22 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
           ),
           Icon(
-            Icons.face,
+            Icons.yard_rounded,
             size: 30,
             color: Colors.white,
           ),
           Icon(
-            Icons.slideshow,
+            Icons.book,
             size: 30,
             color: Colors.white,
           ),
           Icon(
-            Icons.info,
+            Icons.sunny,
             size: 30,
             color: Colors.white,
           ),
           Icon(
-            Icons.videocam,
+            Icons.newspaper,
             size: 30,
             color: Colors.white,
           ),

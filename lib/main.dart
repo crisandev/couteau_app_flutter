@@ -28,7 +28,6 @@ class Main extends StatelessWidget {
       body: Center(
         child: GestureDetector(
             onTap: () {
-              // Navigate to another page using the context from the MaterialApp
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const HomePage()),

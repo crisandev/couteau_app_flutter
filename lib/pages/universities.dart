@@ -11,11 +11,11 @@ class Universities extends StatefulWidget {
 
 class UniversitiesState extends State<Universities> {
   late TextEditingController _textController;
-  String imageUrl = "assets/images/ages/desconocido.png";
 
   List<Widget> universities = [];
 
   void showAllUniversities(List listUniversities) {
+    universities.clear();
     for (var element in listUniversities) {
       setState(() {
         universities.add(Card(
@@ -26,12 +26,14 @@ class UniversitiesState extends State<Universities> {
   }
 
   void showUniversities() async {
-    if(_textController.text.isEmpty) return;
+    if (_textController.text.isEmpty) return;
     String apiUrl =
         'http://universities.hipolabs.com/search?country=${_textController.text}';
     try {
       final response = await http.get(Uri.parse(apiUrl));
 
+      if (response.body.length < 3)
+        throw Exception("El país ingresado no esta correcto");
       if (response.statusCode == 200) {
         final jsonData = json.decode(response.body);
         showAllUniversities(jsonData);
@@ -42,7 +44,7 @@ class UniversitiesState extends State<Universities> {
       }
     } catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          backgroundColor: Colors.red, content: Text('Error: $error')));
+          backgroundColor: Colors.red, content: Text(error.toString())));
     }
   }
 
@@ -59,8 +61,11 @@ class UniversitiesState extends State<Universities> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(
+              height: 40,
+            ),
             const Text(
-              "Revelador de Edad",
+              "Universidades",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 30),
             ),
@@ -70,19 +75,19 @@ class UniversitiesState extends State<Universities> {
                 setState(() {});
               },
               decoration: const InputDecoration(
-                  labelText: 'Ingresa tu Nombre',
+                  labelText: 'Ingresa el nombre del país (en inglés)',
                   floatingLabelAlignment: FloatingLabelAlignment.center),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: showUniversities,
-              child: const Text("Revelar Edad"),
+              child: const Text("Mostrar Universidades"),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: universities,
             )
           ],

@@ -59,7 +59,7 @@ class AgeRevealState extends State<AgeReveal> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              "Revelador de Edad",
+              "Revelador de edad",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 30),
             ),
@@ -77,7 +77,7 @@ class AgeRevealState extends State<AgeReveal> {
               onPressed: ageReveal,
               child: const Text("Revelar Edad"),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Image(
